@@ -8,3 +8,4 @@ class FetchVideoStream extends VlcplayerEvent {
   @override
   List<Object> get props => [];
 }
+

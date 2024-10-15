@@ -9,7 +9,7 @@ abstract class VlcplayerState extends Equatable {
 class VideoLoadingState extends VlcplayerState {}
 
 class VideoPlayingState extends VlcplayerState {
-  final VlcPlayerController controller;
+  final List<VlcPlayerController>  controller;
 
   VideoPlayingState({required this.controller});
 

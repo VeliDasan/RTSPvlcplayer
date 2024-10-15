@@ -2,9 +2,9 @@ import 'package:dahua_rtsp_vlc_player/src/blocs/VLCplayerBLoC/vlcplayer_bloc.dar
 import 'package:dahua_rtsp_vlc_player/src/blocs/VLCplayerBLoC/vlcplayer_event.dart';
 import 'package:dahua_rtsp_vlc_player/src/blocs/VLCplayerBLoC/vlcplayer_state.dart';
 import 'package:dahua_rtsp_vlc_player/src/repositories/video_repository.dart';
+import 'package:dahua_rtsp_vlc_player/src/widgets/buildCameraPlayer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_vlc_player/flutter_vlc_player.dart';
 
 class VlcPlayerScreen extends StatelessWidget {
   final VideoRepository videoRepository = VideoRepository();
@@ -26,11 +26,12 @@ class VlcPlayerScreen extends StatelessWidget {
           },
           builder: (context, state) {
             if (state is VideoPlayingState) {
-              return Center(
-                  child: VlcPlayer(
-                controller: state.controller,
-                aspectRatio: 16 / 9,
-              ));
+              return GridView.count(
+                crossAxisCount: 2,
+                children: List.generate(state.controller.length, (index) {
+                  return buildCameraPlayer(state.controller[index]);
+                }),
+              );
             } else {
               return const Center(child: Text('Unknown state'));
             }
