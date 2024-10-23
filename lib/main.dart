@@ -1,4 +1,4 @@
-import 'package:dahua_rtsp_vlc_player/src/pages/VLCplayer.dart';
+import 'package:dahua_rtsp_vlc_player/src/pages/home_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: VlcPlayerScreen(),
+      home: HomePage(),
     );
   }
 }
